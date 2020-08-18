@@ -9,9 +9,10 @@ describe('Park', function() {
 
   beforeEach(function () {
     dinosaur1 = new Dinosaur("Bird", "Fruit", 5);
-    park = new Park("Jurassic Park", 10, [dinosaur1]);
     dinosaur2 = new Dinosaur("T-Rex", "Mammals", 20);
+    dinosaur3 = new Dinosaur("FlappyBoy", "Seeds", 7)
     dinosaurs = [dinosaur1, dinosaur2];
+    park = new Park("Jurassic Park", 10, dinosaurs);
   });
 
   it('should have a name', function () {
@@ -26,19 +27,19 @@ describe('Park', function() {
 
   it('should have a collection of dinosaurs', function() {
     const actual = park.dinosaurs;
-    assert.deepStrictEqual(actual, [dinosaur1]);
+    assert.deepStrictEqual(actual, dinosaurs);
   });
 
   it('should be able to add a dinosaur to its collection', function() {
-    park.addToPark(dinosaur2);
+    park.addToPark(dinosaur3);
     const actual = park.dinosaurs;
-    assert.deepStrictEqual(actual, [dinosaur1, dinosaur2]);
+    assert.deepStrictEqual(actual, [dinosaur1, dinosaur2, dinosaur3]);
   });
 
   it('should be able to remove a dinosaur from its collection', function() {
     park.removeFromPark();
     const actual = park.dinosaurs;
-    assert.deepStrictEqual(actual, []);
+    assert.deepStrictEqual(actual, [dinosaur1]);
   });
 
   xit('should be able to find the dinosaur that attracts the most visitors', function() {
@@ -52,12 +53,18 @@ describe('Park', function() {
   });
 
   it('should be able to calculate the total number of visitors per day', function() {
-    const actual = park.getTotalVisitsPerDay(dinosaurs);
+    const actual = park.getTotalVisitsPerDay(park);
     assert.strictEqual(actual, 25);
   });
 
-  xit('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function() {
+    const actual = park.getTotalVisitsPerYear(park);
+    assert.strictEqual(actual, 9125);
+  });
 
-  xit('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    const actual = park.getTotalRevenue(park);
+    assert.strictEqual(actual, 91250);
+  });
 
 });

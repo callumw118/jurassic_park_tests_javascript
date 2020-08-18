@@ -33,13 +33,25 @@ Park.prototype.getAllDinosaursForSpecies = function(species, dinosaurs) {
     return speciesArray;
 }
 
-Park.prototype.getTotalVisitsPerDay = function(dinosaurs) {
+Park.prototype.getTotalVisitsPerDay = function(park) {
     totalVisits = 0;
 
-    for(let dino of dinosaurs) {
+    for(let dino of park.dinosaurs) {
         totalVisits += dino.guestsAttractedPerDay;
     }
     return totalVisits;
+}
+
+Park.prototype.getTotalVisitsPerYear = function(park) {
+    visitsPerDay = this.getTotalVisitsPerDay(park);
+    visitsPerYear = visitsPerDay * 365;
+    return visitsPerYear;
+}
+
+Park.prototype.getTotalRevenue = function(park) {
+    visitsPerYear = this.getTotalVisitsPerYear(park);
+    totalRevenue = park.price * visitsPerYear;
+    return totalRevenue;
 }
 
 module.exports = Park;
