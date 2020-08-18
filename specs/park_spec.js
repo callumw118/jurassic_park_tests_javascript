@@ -3,10 +3,11 @@ const Park = require('../models/park.js');
 const Dinosaur = require('../models/dinosaur.js');
 
 describe('Park', function() {
+  let park;
 
   beforeEach(function () {
-
-  })
+    park = new Park("Jurassic Park", 10, []);
+  });
 
   it('should have a name', function () {
     const actual = park.name;
