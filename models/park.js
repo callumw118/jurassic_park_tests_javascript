@@ -54,4 +54,14 @@ Park.prototype.getTotalRevenue = function(park) {
     return totalRevenue;
 }
 
+Park.prototype.removeSpecies = function(species, dinosaurs) {
+    let dinosaursToKeep = [];
+    for(var i=0; i<dinosaurs.length; i++) {
+        if(dinosaurs[i].species !== species) {
+            dinosaursToKeep.push(dinosaurs[i]);
+        }
+    }
+    return dinosaursToKeep;
+}
+
 module.exports = Park;
