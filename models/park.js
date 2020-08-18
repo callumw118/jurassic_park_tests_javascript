@@ -33,4 +33,13 @@ Park.prototype.getAllDinosaursForSpecies = function(species, dinosaurs) {
     return speciesArray;
 }
 
+Park.prototype.getTotalVisitsPerDay = function(dinosaurs) {
+    totalVisits = 0;
+
+    for(let dino of dinosaurs) {
+        totalVisits += dino.guestsAttractedPerDay;
+    }
+    return totalVisits;
+}
+
 module.exports = Park;
