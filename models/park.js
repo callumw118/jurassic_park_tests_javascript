@@ -8,4 +8,8 @@ Park.prototype.addToPark = function(dinosaurToAdd) {
     this.dinosaurs.push(dinosaurToAdd);
 }
 
+Park.prototype.removeFromPark = function() {
+    this.dinosaurs.pop();
+}
+
 module.exports = Park;
