@@ -4,7 +4,8 @@ const Dinosaur = require('../models/dinosaur.js');
 
 describe('Park', function() {
   let park;
-  let dinosaur;
+  let dinosaur1;
+  let dinosaur2;
 
   beforeEach(function () {
     dinosaur1 = new Dinosaur("Bird", "Fruit", 5);
@@ -39,7 +40,10 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, []);
   });
 
-  xit('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function() {
+    const actual = dinosaur1.getMostVisited([dinosaur1, dinosaur2]);
+    assert.strictEqual(actual, dinosaur2);
+  });
 
   xit('should be able to find all dinosaurs of a particular species');
 
