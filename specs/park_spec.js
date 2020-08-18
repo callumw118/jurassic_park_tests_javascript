@@ -42,7 +42,7 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur1]);
   });
 
-  xit('should be able to find the dinosaur that attracts the most visitors', function() {
+  it('should be able to find the dinosaur that attracts the most visitors', function() {
     const actual = park.getMostVisited(dinosaurs);
     assert.strictEqual(actual, dinosaur2);
   });
