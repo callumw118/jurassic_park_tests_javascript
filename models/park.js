@@ -23,7 +23,7 @@ Park.prototype.getMostVisited = function(dinosaurs) {
 }
 
 Park.prototype.getAllDinosaursForSpecies = function(species, dinosaurs) {
-    let speciesArray = [];
+    const speciesArray = [];
 
     for(let dino of dinosaurs) {
         if(dino.species === species) {
@@ -34,7 +34,7 @@ Park.prototype.getAllDinosaursForSpecies = function(species, dinosaurs) {
 }
 
 Park.prototype.getTotalVisitsPerDay = function(park) {
-    totalVisits = 0;
+    let totalVisits = 0;
 
     for(let dino of park.dinosaurs) {
         totalVisits += dino.guestsAttractedPerDay;
@@ -55,7 +55,7 @@ Park.prototype.getTotalRevenue = function(park) {
 }
 
 Park.prototype.removeSpecies = function(species, dinosaurs) {
-    let dinosaursToKeep = [];
+    const dinosaursToKeep = [];
     for(var i=0; i<dinosaurs.length; i++) {
         if(dinosaurs[i].species !== species) {
             dinosaursToKeep.push(dinosaurs[i]);
